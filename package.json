@@ -1,0 +1,8 @@
+{
+  "name": "mk-event",
+  "version": "0.0.1",
+  "description": "Simple JavaScript Events",
+  "main": "index.js",
+  "author": "John Galt",
+  "license": "MIT"
+}
