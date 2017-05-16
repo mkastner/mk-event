@@ -50,7 +50,11 @@ function MkEvent() {
     }
 
     function removeAllEventListeners() {
-        let keys = Object.keys(this.eventListeners);
+        let keys = []; //Object.keys(this.eventListeners);
+        // ulify js does not do es6 thus no Object.keys
+        for (let key in this.eventListeners) {
+            keys.push(key);
+        }
         for (let i = 0, l = keys.length; i < l; i ++) {
             let key = keys[i];
             let events = this.eventListeners[key];
