@@ -1,3 +1,5 @@
+/*jslint esversion:6 */
+
 /* jslint browser:true, strict:implied, esversion:6 */
 /* globals module, console, require */
 
@@ -18,6 +20,7 @@ function MkEvent() {
     var prototype = {
         addEventListener: addEventListener,
         removeEventListener: removeEventListener,
+        removeAllEventListeners: removeAllEventListeners,
         fireEvent: fireEvent
     };
 
@@ -44,6 +47,17 @@ function MkEvent() {
 
         listeners.splice(handler.listenerId, 1);
 
+    }
+
+    function removeAllEventListeners() {
+        let keys = Object.keys(this.eventListeners);
+        for (let i = 0, l = keys.length; i < l; i ++) {
+            let key = keys[i];
+            let events = this.eventListeners[key];
+            for (let j = 0, jl = events.length; j < jl; j++) {
+                removeEventListener(name, handler);
+            }
+        }
     }
 
     /**
